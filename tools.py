@@ -1,5 +1,4 @@
 import argparse
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Save cut img with text and save metricks")
     parser.add_argument("path", type=str, help="Путь до папки с вырезанными изображениями")
