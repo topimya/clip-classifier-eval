@@ -3,9 +3,6 @@ import cv2
 import numpy as np
 from PIL import Image
 from PIL import ImageOps
-#from yolo_segme import yolo_txt_box
-
-RES_DIR = ''
 
 def yolo_txt_box(yolo_coords, img_width, img_height):
     x_center, y_center, width, height = yolo_coords
@@ -16,7 +13,7 @@ def yolo_txt_box(yolo_coords, img_width, img_height):
 
     return [x1, y1, x2, y2]
 
-def save_img(img_dir):
+def save_img(img_dir, RES_DIR):
     img_folder_name = os.path.basename(img_dir)
     labels_folder = os.path.join(os.path.dirname(img_dir), f'label files ({img_folder_name})') 
     output_dir = os.path.join(RES_DIR, f'{os.path.basename(os.path.dirname(img_dir))}')
@@ -51,15 +48,12 @@ def save_img(img_dir):
 
     return
         
-def find_img_folder(dir):
+def find_img_folder(dir, save_clip_dir):
+    RES_DIR = save_clip_dir
     for root, _, files in os.walk(dir):
         img = any(file.lower().endswith(('.png', '.jpg', '.jpeg')) for file in files)
 
         if img:
-            save_img(root)
+            save_img(root, RES_DIR)
     
     return 
-    
-if __name__ == '__main__':
-    print('Start')
-    find_img_folder('')

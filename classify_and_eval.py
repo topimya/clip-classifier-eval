@@ -107,7 +107,7 @@ def metricks(metrics_detailed, percent_thresholds, name_img, probs_all, root, ou
     metrics_detailed['F1'] = 2 * (metrics_detailed['Precision'] * metrics_detailed['Recall']) / (metrics_detailed['Precision'] + metrics_detailed['Recall'] + eps)
     return metrics_detailed, metricks_class
 
-def main(dir, res_dir):
+def clip_main(dir, res_dir):
     metrics_names = ['TP', 'FP', 'N', 'Precision', 'Recall', 'F1']
     percent_thresholds = list(range(5, 100, 5))
     indexes = [percent_thresholds, classes_names + ['sum']]
@@ -171,11 +171,4 @@ def main(dir, res_dir):
     return 
 
 if __name__ == '__main__':
-    print('Start')
-    args = parse_args()
-    orig_dir = args.path
-    save_clip_dir = args.path_res
-    FLAG = args.split
-    print(FLAG)
-    main(args.path, save_clip_dir)
-    print('End')
+

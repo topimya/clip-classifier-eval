@@ -17,6 +17,22 @@ pip install -r requirements.txt
 
 Для работы программы classify_and_eval.py файл с классами должен находиться в одной папке вместе с папкой с изображениями. 
 
+## 1. Пример файла classes.txt 
+```
+apple
+banana
+cup
+...
+```
+
+## 2. Пример файла classes.txt 
+```
+apple
+banana
+cup, glass
+...
+```
+
 ## Запуск
 ```bash
 python classify_and_eval.py путь/к/папке/с изображениями путь/к папке/где/будет результат 
